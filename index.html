@@ -6,13 +6,102 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+
+
+
+  for(var i = 0; i<window.geemails.length; i++){
+  
+  var mailDate = document.createElement('div');
+  mailDate.className = "messDate";
+  mailDate.innerHTML = window.geemails[i].date;
+  document.body.appendChild(mailDate);  
+  
+  var mailSender = document.createElement('div');
+  mailSender.className = "messSender";
+  mailSender.innerHTML = window.geemails[i].sender;
+  document.body.appendChild(mailSender);  
+  
+  var mailSubject = document.createElement('div');
+  mailSubject.className = "messSubject";
+  mailSubject.innerHTML = window.geemails[i].subject;
+  document.body.appendChild(mailSubject);
+  
+ var mailBody = document.createElement('div');
+  mailBody.className = "mailContent";
+  mailBody.innerHTML = window.geemails[i].body;
+  mailBody.style.display = 'none';
+  mailBody.style.color = 'red';
+    mailSubject.appendChild(mailBody);
+
+var getMail = document.getElementsByClassName('messSubject');
+getMail[i].addEventListener('click', showMail);
+}
+
+function showMail(){
+var displayMail = this.querySelectorAll('.mailContent')[0];
+  if(displayMail.style.display === 'none'){
+    displayMail.style.display = 'block';
+  }else{
+    displayMail.style.display = 'none';
+  } 
+}
+
+setInterval(function newMessage(){
+ var newSender = getNewMessage().sender;
+ var newDate = getNewMessage().date;
+ var newSubject = getNewMessage().subject;
+ var newBody = getNewMessage().body;
+
+ var newMailDate = document.createElement('div');
+ newMailDate.className = "newMessDate";
+ newMailDate.innerHTML = newDate;
+ document.body.appendChild(newMailDate);
+
+ var newMailSender = document.createElement('div');
+  newMailSender.className = "newMessSender";
+  newMailSender.innerHTML = newSender;
+  document.body.appendChild(newMailSender);
+
+ var newMailSubject = document.createElement('div');
+      newMailSubject.className = "newMessSubject";
+  newMailSubject.innerHTML = newSubject;
+  document.body.appendChild(newMailSubject);
+
+var newMailBody = document.createElement('div');
+  newMailBody.className = "newMailContent";
+  newMailBody.innerHTML = newBody;
+  newMailBody.style.display = 'none';
+  newMailBody.style.color = 'red';
+  newMailSubject.appendChild(newMailBody);
+
+
+var getNewMail = document.getElementsByClassName('newMessSubject');
+for(var i = 0; i < getNewMail.length; i++){
+getNewMail[i].addEventListener('click', showMail);
+}
+
+function showMail(){
+var displayMail = this.querySelectorAll('.newMailContent')[0];
+  if(displayMail.style.display === 'none'){
+    displayMail.style.display = 'block';
+  }else{
+    displayMail.style.display = 'none';
+  } 
+}
+
+}, 5000);
+
+};
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
 		</div>
+		<header id = "title">Gee Mail</header>
+		<header>
+		<nav>
+			<p class="mailNav">New Messages: <span id="count">0</span></p>
+		</nav>
+	</header>
 	</body>
 </html>
