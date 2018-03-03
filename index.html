@@ -3,26 +3,104 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function(){
+      window.onload = function loadFunctions(){
+
+      doCounter();
+      createRow();
+      addDate();
+      addSender();
+      addSubject();
+      addBody();
+
+setInterval(function newMessage(){
+/*    		var i = Math.floor(Math.random()*10);
+    		var newMailRow = document.createElement('tr');	
+     	newMailRow.className = 'newMailMessage';
+     	inbox.appendChild(newMailRow);
+     		var newMailDate = document.createElement('td');
+     		newMailDate.className = 'messDate';
+     		newMailDate.innerHTML = window.geemails[i].date;
+     		document.getElementsByClassName('newMailMessage').appendChild(newMailDate);
+     		 var newMailSender = document.createElement('td');
+     		newMailSender.className = 'messSender';
+     		newMailSender.innerHTML = window.geemails[i].sender;
+     		document.getElementsByClassName('newMailMessage').appendChild(newMailSender);
+
+     		console.log('test');*/
+    	}, 2000);
+
+
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+    };
+
+function doCounter(){
+	count.innerHTML = window.geemails.length;
+}
+
+     function createRow(){
+     	for(var i = 0; i < window.geemails.length;i++){
+     	var mailRow = document.createElement('tr');
+     	mailRow.className = 'mailMessage';
+     	inbox.appendChild(mailRow);
+     	console.log('test');
+     	}
+     }
+
+     function addDate(){
+     	for(var i = 0; i < window.geemails.length;i++){
+     		var mailDate = document.createElement('td');
+     		mailDate.className = 'messDate';
+     		mailDate.innerHTML = window.geemails[i].date;
+     		document.getElementsByClassName('mailMessage')[i].appendChild(mailDate);
+     	}
+     }  
+
+     function addSender(){
+     	for(var i = 0; i < window.geemails.length;i++){
+     		var mailSender = document.createElement('td');
+     		mailSender.className = 'messSender';
+     		mailSender.innerHTML = window.geemails[i].sender;
+     		document.getElementsByClassName('mailMessage')[i].appendChild(mailSender);
+     	}
+     }
+
+      function addSubject(){
+     	for(var i = 0; i < window.geemails.length;i++){
+     		var mailSubject = document.createElement('td');
+     		mailSubject.className = 'messSubject';
+     		mailSubject.innerHTML = window.geemails[i].subject;
+     		document.getElementsByClassName('mailMessage')[i].appendChild(mailSubject);
+     	}
+     } 
+
+        function addBody(){
+     	for(var i = 0; i < window.geemails.length;i++){
+     		var mailBody = document.createElement('td');
+     		mailBody.className = 'messBody';
+     		mailBody.innerHTML = window.geemails[i].body;
+     		document.getElementsByClassName('mailMessage')[i].appendChild(mailBody);
+     	}
+     } 
+
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
 		</div>
 		<header id = "title">Gee Mail</header>
-		<nav id = getMail>
-			<p id = fetch>Fetch Mail</p>
-			<p id = mailCount>Mail</p>
+		<header>
+		<nav>
+			<p class="mailNav">New Messages: <span id="count">0</span></p>
 		</nav>
-		<div class = category>Subject</div>
-			<div id = subject></div>	 
-		<div class = category>Sender</div>
-			<div id = sender></div>
-		<div class = cateory>Date Sent</div>
-			<div id = date></div>
+	</header>
+<table id = "inbox" style="width:100%">
+  <tr>
+    <th>Date</th>
+    <th>Sender</th> 
+    <th>Subject</th>
+    <th>Message</th>
+  </tr>
+</table>
 	</body>
 </html>
