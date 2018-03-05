@@ -1,0 +1,59 @@
+#title{
+	color: red;
+	font-size: 30px;
+}
+
+body{
+	background-color: black;
+}
+
+nav{
+	font-size: 25px;
+	color: forestgreen;
+}
+
+.messDate{
+	display: inline;
+	padding-right: 40px;
+	color: white;
+}
+
+.messSender{
+	display: inline;
+	padding-right: 40px;
+	color: white;
+}
+
+.messSubject{
+	display: inline;
+	padding-right: 40px;
+	color: blue;
+}
+
+.messSubject:after {
+    content:"\a";
+    white-space: pre;
+}
+
+.newMessDate{
+	display: inline;
+	padding-right: 40px;
+	color: white;
+}
+
+.newMessSender{
+	display: inline;
+	padding-right: 40px;
+	color: white;
+}
+
+.newMessSubject{
+	display: inline;
+	padding-right: 40px;
+	color: blue;
+}
+
+.newMessSubject:after {
+    content:"\a";
+    white-space: pre;
+}
